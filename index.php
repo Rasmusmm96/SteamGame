@@ -5,8 +5,10 @@ if (!isset($_COOKIE["SteamID"])) {
 }
 
 $steamid = $_COOKIE["SteamID"];
+$config = json_decode(file_get_contents("config.json"));
+$apiKey = $config->api_key;
 
-$url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=54B10DA7F435608803C98AF5C0227026&steamid=' . $steamid . '&include_appinfo=1&include_played_free_games=1&format=json';
+$url = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key={$apiKey}&steamid={$steamid}&include_appinfo=1&include_played_free_games=1&format=json";
 $obj = json_decode(file_get_contents($url), true);
 $games = $obj['response']['games'];
 ?>
@@ -90,8 +92,6 @@ $games = $obj['response']['games'];
   </nav>
   <?php
 
-  $targets = array('Beta', 'Test', 'SDK');
-
   if (isset($_GET['query'])) {
     $query = strtolower($_GET['query']);
     $newGames = [];
@@ -135,6 +135,7 @@ $games = $obj['response']['games'];
     }
   }
 
+  $targets = array(' Beta', ' Test', ' SDK');
   ?>
 
   <div class="card-parent">
