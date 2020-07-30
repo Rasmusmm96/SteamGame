@@ -111,9 +111,11 @@ $genres = implode(", ", $genres);
             <a href="steam://run/<?php echo $appid; ?>" class="btn btn-primary">Start spil</a>
           </div>
         </div>
-        <video class="img-fluid" controls poster="<?php echo $game['movies'][0]['thumbnail']; ?>">
-          <source src="<?php echo $game['movies'][0]['webm']['max']; ?>" type="video/webm">
+        <?php foreach ($game['movies'] as $movie): ?>
+        <video class="img-fluid" controls poster="<?= $movie['thumbnail']; ?>">
+          <source src="<?= $movie['webm']['max']; ?>" type="video/webm">
         </video>
+        <?php endforeach; ?>
       </div>
       <div class="col">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

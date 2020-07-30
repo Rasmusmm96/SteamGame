@@ -48,6 +48,11 @@ $games = $obj['response']['games'];
     margin: 15px;
   }
 
+  .card-body {
+    border-radius: 0 0 .25rem .25rem;
+    background-color: white;
+  }
+
   .card-title {
     white-space: nowrap;
     overflow: hidden;
@@ -151,7 +156,7 @@ $games = $obj['response']['games'];
       }
       ?>
       <?php if ($show) : ?>
-        <div class="card gamecard">
+        <div class="gamecard">
           <a href="./game.php?appid=<?= $game['appid'] ?>"><img class="card-img-top" src="<?= $imgsrc ?>" alt="Card image cap"></a>
           <div class="card-body">
             <h5 class="card-title"><?= $game['name'] ?></h5>

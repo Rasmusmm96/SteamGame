@@ -22,6 +22,10 @@
   .card {
     width: 350px;
   }
+
+  form {
+    margin: 0;
+  }
 </style>
 
 <body>
