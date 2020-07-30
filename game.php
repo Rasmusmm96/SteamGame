@@ -45,9 +45,24 @@ $genres = implode(", ", $genres);
     background-color: #1d2a3a !important;
   }
 
+  .parent {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right {
+    max-width: 430px;
+    margin: 0 8px 0 8px;
+  }
+
+  .left {
+    max-width: 720px;
+    margin: 0 8px 0 8px;
+  }
+
   .gamecard {
-    width: 430px;
-    margin-top: 15px;
+    margin: 8px 0 8px 0;
   }
 
   .card-body {
@@ -56,7 +71,8 @@ $genres = implode(", ", $genres);
   }
 
   video {
-    margin-top: 15px;
+    width: 100%;
+    margin: 8px 0 8px 0;
   }
 
   img {
@@ -70,12 +86,11 @@ $genres = implode(", ", $genres);
   }
 
   .carousel {
-    margin-top: 15px;
+    margin: 8px 0 8px 0;
   }
 
   .card {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 16px 0 8px 0;
   }
 </style>
 
@@ -94,9 +109,10 @@ $genres = implode(", ", $genres);
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col">
+  <div class="parent">
+
+      <div class="right">
+
         <div class="gamecard">
           <img class="card-img-top" src="<?= $game['header_image']; ?>" alt="Card image cap">
           <div class="card-body">
@@ -111,13 +127,17 @@ $genres = implode(", ", $genres);
             <a href="steam://run/<?php echo $appid; ?>" class="btn btn-primary">Start spil</a>
           </div>
         </div>
+
         <?php foreach ($game['movies'] as $movie): ?>
-        <video class="img-fluid" controls poster="<?= $movie['thumbnail']; ?>">
+        <video controls poster="<?= $movie['thumbnail']; ?>">
           <source src="<?= $movie['webm']['max']; ?>" type="video/webm">
         </video>
         <?php endforeach; ?>
+
       </div>
-      <div class="col">
+
+      <div class="left">
+
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <?php foreach ($game['screenshots'] as $key => $photo) : ?>
@@ -135,6 +155,7 @@ $genres = implode(", ", $genres);
             <span class="sr-only">Next</span>
           </a>
         </div>
+
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">
@@ -145,8 +166,9 @@ $genres = implode(", ", $genres);
             </p>
           </div>
         </div>
+
       </div>
-    </div>
+
   </div>
 </body>
 

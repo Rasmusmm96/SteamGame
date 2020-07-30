@@ -42,12 +42,12 @@ $games = $obj['response']['games'];
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 15px 0 15px;
+    padding: 8px;
   }
 
   .gamecard {
-    width: 340px;
-    margin: 15px;
+    width: 350px;
+    margin: 8px;
   }
 
   .card-body {
